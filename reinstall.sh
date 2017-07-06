@@ -1,10 +1,5 @@
 #!/bin/bash
 
-docker-compose stop
-docker-compose rm -fva
-
-docker network rm custom-network
-docker network create --driver bridge --subnet 172.19.0.0/24 custom-network
-
+docker-compose down -v
 docker-compose build
 docker-compose up -d

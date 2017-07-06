@@ -15,8 +15,6 @@ services:
             TZ: America/New_York
         dns:
             - 8.8.8.8
-        networks:
-            - ethloc
 
     fpm:
         build: docker/fpmphp
@@ -32,8 +30,6 @@ services:
             TZ: America/New_York
         dns:
             - 8.8.8.8
-        networks:
-            - ethloc
 
     database:
         build: docker/mysql
@@ -52,10 +48,3 @@ services:
             TZ: America/New_York
         dns:
             - 8.8.8.8
-        networks:
-            - ethloc
-
-networks:
-    ethloc:
-        external:
-            name: custom-network
