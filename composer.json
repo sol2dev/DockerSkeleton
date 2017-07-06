@@ -1,0 +1,17 @@
+{
+    "name": "sol2dev/DockerSkeleton",
+    "description": "Template to use Docker container.",
+    "license": "LGPLv3",
+    "type": "library",
+    "keywords": ["sol2dev", "docker", "skeleton, "dockerskeleton", "docker-skeleton"],
+    "homepage": "https://github.com/sol2dev/DockerSkeleton",
+    "version": "0.0.1",
+    "authors": [
+        {
+            "name": "sol2dev"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    }
+}

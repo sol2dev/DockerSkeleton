@@ -1,0 +1,61 @@
+version: '2'
+services:
+
+    nginx:
+        build: docker/nginx
+        volumes_from:
+            - fpm
+        restart: always
+        tty: true
+        stdin_open: true
+        working_dir: /
+        ports:
+            - "8080:2525"
+        environment:
+            TZ: America/New_York
+        dns:
+            - 8.8.8.8
+        networks:
+            - ethloc
+
+    fpm:
+        build: docker/fpmphp
+        volumes:
+            - .:/application
+        working_dir: /application
+        restart: always
+        tty: true
+        stdin_open: true
+        expose:
+            - 9000
+        environment:
+            TZ: America/New_York
+        dns:
+            - 8.8.8.8
+        networks:
+            - ethloc
+
+    database:
+        build: docker/mysql
+        restart: always
+        tty: true
+        stdin_open: true
+        volumes:
+            - ./mysqldb:/var/lib/mysql
+        expose:
+            - 3306
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: test
+            MYSQL_USER: tester
+            MYSQL_PASSWORD: 123123
+            TZ: America/New_York
+        dns:
+            - 8.8.8.8
+        networks:
+            - ethloc
+
+networks:
+    ethloc:
+        external:
+            name: custom-network
