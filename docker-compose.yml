@@ -13,8 +13,6 @@ services:
             - "8080:2525"
         environment:
             TZ: America/New_York
-        dns:
-            - 8.8.8.8
 
     fpm:
         build: docker/fpmphp
@@ -26,10 +24,9 @@ services:
         stdin_open: true
         expose:
             - 9000
-        environment:
-            TZ: America/New_York
-        dns:
-            - 8.8.8.8
+        env_file:
+            - .env.loc
+            - .mysql.env.loc
 
     database:
         build: docker/mysql
@@ -40,11 +37,6 @@ services:
             - ./mysqldb:/var/lib/mysql
         expose:
             - 3306
-        environment:
-            MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: test
-            MYSQL_USER: tester
-            MYSQL_PASSWORD: 123123
-            TZ: America/New_York
-        dns:
-            - 8.8.8.8
+        env_file:
+            - .env.loc
+            - .mysql.env.loc
