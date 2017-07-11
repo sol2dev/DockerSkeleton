@@ -1,4 +1,4 @@
-FROM nginx
+FROM nginx:1.13
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get upgrade -y

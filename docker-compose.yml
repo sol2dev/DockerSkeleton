@@ -11,8 +11,8 @@ services:
         working_dir: /
         ports:
             - "8080:2525"
-        environment:
-            TZ: America/New_York
+        env_file:
+            - .env.loc
 
     fpm:
         build: docker/fpmphp

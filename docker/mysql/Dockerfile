@@ -1,4 +1,4 @@
-FROM mysql:5.6
+FROM mysql:8.0
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get upgrade -y

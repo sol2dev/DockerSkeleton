@@ -7,9 +7,9 @@ Template to use Docker container.
 
 The following containers are started by default:
 
-- **fpm / php:7.0-fpm** - The fpm container will run a version 7.0 of PHP. It will install a specific some extensions required by the application or framework.
-- **database / mysql:5.6** - The database container will run a version 5.6 of MySQL. The data of the container will be stored under ./mysqldb.
-- **nginx / nginx** - The nginx container will run the webserver using Nginx. By default, all requests for nonexistent files except those that end in .php are redirected to index.php to implement a Friendly URL.
+- **fpm / php:7.1-fpm** - The fpm container will run a version 7.0 of PHP. It will install a specific some extensions required by the application or framework.
+- **database / mysql:8.0** - The database container will run a version 5.6 of MySQL. The data of the container will be stored under ./mysqldb.
+- **nginx / nginx:1.13** - The nginx container will run the webserver using Nginx. By default, all requests for nonexistent files except those that end in .php are redirected to index.php to implement a Friendly URL.
 
 ## Shell script
 
